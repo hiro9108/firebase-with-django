@@ -23,7 +23,15 @@ function App() {
   };
 
   const logoutHandler = () => {
-    firebase.auth().signOut();
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        alert("Logout is successfully!");
+      })
+      .catch((err) => {
+        alert("Logout is failed!", err);
+      });
   };
 
   return (
